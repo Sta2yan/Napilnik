@@ -20,7 +20,7 @@ class Weapon
 
     public int Bullets { get; private set; }
     public int Damage { get; private set; }
-    public bool CanFire => BulletOnShoot >= Bullets;
+    public bool CanFire => BulletOnShoot <= Bullets;
 
     public void Fire(Player player)
     {
