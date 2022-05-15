@@ -58,18 +58,18 @@ class Player
 
 class Bot
 {
-    private Weapon _weapon;
+    private readonly Weapon Weapon;
 
     public Bot(Weapon weapon)
     {
         if (weapon == null)
             throw new ArgumentNullException(nameof(weapon));
 
-        _weapon = weapon;
+        Weapon = weapon;
     }
 
     public void OnSeePlayer(Player player)
     {
-        _weapon.Fire(player);
+        Weapon.Fire(player);
     }
 }
