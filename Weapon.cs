@@ -31,7 +31,7 @@ class Weapon
             throw new ArgumentNullException(nameof(player));
 
         Bullets -= BulletOnShoot;
-        player.ApplyDamage(this);
+        player.Damage(this);
     }
 }
 
@@ -47,7 +47,7 @@ class Player
 
     public int Health { get; private set; }
 
-    public void ApplyDamage(Weapon weapon)
+    public void Damage(Weapon weapon)
     {
         if (Health < weapon.Damage)
             throw new ArgumentOutOfRangeException(nameof(Health));
