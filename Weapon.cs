@@ -1,4 +1,4 @@
-class Weapon
+public class Weapon
 {
     private readonly int BulletOnShoot;
 
@@ -35,7 +35,7 @@ class Weapon
     }
 }
 
-class Player
+public class Player
 {
     public Player(int health)
     {
@@ -56,7 +56,7 @@ class Player
     }
 }
 
-class Bot
+public class Bot
 {
     private readonly Weapon Weapon;
 
