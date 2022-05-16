@@ -1,4 +1,4 @@
-public class Weapon
+class Weapon
 {
     private readonly int BulletOnShoot;
 
@@ -35,11 +35,7 @@ public class Weapon
     }
 }
 
-<<<<<<< Updated upstream
-public class Player
-=======
 class Player : IDamageable
->>>>>>> Stashed changes
 {
     public Player(int health)
     {
@@ -64,16 +60,12 @@ class Player : IDamageable
     }
 }
 
-<<<<<<< Updated upstream
-public class Bot
-=======
 interface IDamageable
 {
     public void Damage(Weapon weapon);
 }
 
 class Bot
->>>>>>> Stashed changes
 {
     private readonly Weapon Weapon;
 
