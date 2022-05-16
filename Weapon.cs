@@ -22,20 +22,24 @@ public class Weapon
     public int Damage { get; private set; }
     public bool CanFire => BulletOnShoot <= Bullets;
 
-    public void Fire(Player player)
+    public void Fire(IDamageable target)
     {
         if (CanFire == false)
             throw new InvalidOperationException();
 
-        if (player == null)
-            throw new ArgumentNullException(nameof(player));
+        if (target == null)
+            throw new ArgumentNullException(nameof(target));
 
         Bullets -= BulletOnShoot;
-        player.Damage(this);
+        target.Damage(this);
     }
 }
 
+<<<<<<< Updated upstream
 public class Player
+=======
+class Player : IDamageable
+>>>>>>> Stashed changes
 {
     public Player(int health)
     {
@@ -46,17 +50,30 @@ public class Player
     }
 
     public int Health { get; private set; }
+    public bool Dead => Health == 0;
 
     public void Damage(Weapon weapon)
     {
-        if (Health < weapon.Damage)
-            throw new ArgumentOutOfRangeException(nameof(Health));
+        if (Dead == true)
+            throw new InvalidOperationException(nameof(Health));
 
         Health -= weapon.Damage;
+
+        if (Health < 0)
+            Health = 0;
     }
 }
 
+<<<<<<< Updated upstream
 public class Bot
+=======
+interface IDamageable
+{
+    public void Damage(Weapon weapon);
+}
+
+class Bot
+>>>>>>> Stashed changes
 {
     private readonly Weapon Weapon;
 
